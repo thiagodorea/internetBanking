@@ -18,8 +18,8 @@ public class ContaService {
     @Autowired
     private ContaRepository repository;
 
-//    @Autowired
-//    private Operacao operacao;
+    @Autowired
+    private Operacao operacao;
 
     @Transactional(readOnly = true)
     public Page<ContaDto> findAll(Pageable pageable){
@@ -30,7 +30,7 @@ public class ContaService {
     @Transactional
     public ContaDto sacar(Long id, BigDecimal valor){
         Conta conta = repository.getById(id);
-        conta.setSaldo( conta.getSaldo().subtract(valor));
+        conta.setSaldo(operacao.sacar(conta, valor));
         conta = repository.save(conta);
         return new ContaDto(conta);
     }
