@@ -29,11 +29,18 @@ public class ContaController {
         return ResponseEntity.ok(list);
     }
 
-    @ApiOperation(value = "Realiza um saque da Contas")
+    @ApiOperation(value = "Realiza um saque na Contas")
     @PutMapping(value = "{id}/sacar/{valor}")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<ContaDto> sacar(@PathVariable Long id, @PathVariable BigDecimal valor){
         ContaDto dto = service.sacar(id,valor);
+        return ResponseEntity.ok().body(dto);
+    }
+    @ApiOperation(value = "Realiza um deposito na Contas")
+    @PutMapping(value = "{id}/depositar/{valor}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<ContaDto> sdepositar(@PathVariable Long id, @PathVariable BigDecimal valor){
+        ContaDto dto = service.depositar(id,valor);
         return ResponseEntity.ok().body(dto);
     }
 

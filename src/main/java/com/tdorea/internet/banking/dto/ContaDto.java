@@ -27,12 +27,12 @@ public class ContaDto {
     }
 
     public ContaDto(Conta entity) {
-        this.idConta = entity.getIdConta();
-        this.agencia = entity.getAgencia();
-        this.nConta = entity.getnConta();
-        this.exclusive = entity.getExclusive();
-        this.saldo = entity.getSaldo();
-        this.idCliente = entity.getCliente().getIdCliente();
+        idConta = entity.getIdConta();
+        agencia = entity.getAgencia();
+        nConta = entity.getnConta();
+        exclusive = entity.getExclusive();
+        saldo = entity.getSaldo();
+        idCliente = entity.getCliente().getIdCliente();
     }
 
     public Long getIdConta() {

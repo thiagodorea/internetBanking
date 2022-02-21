@@ -22,4 +22,8 @@ public class Operacao {
         }
         return conta.getSaldo().subtract(valor).setScale(2, RoundingMode.HALF_EVEN);
     }
+
+    public BigDecimal depositar(Conta conta, BigDecimal valor){
+        return conta.getSaldo().add(valor).setScale(2, RoundingMode.HALF_EVEN);
+    }
 }

@@ -34,4 +34,11 @@ public class ContaService {
         conta = repository.save(conta);
         return new ContaDto(conta);
     }
+    @Transactional
+    public ContaDto depositar(Long id, BigDecimal valor){
+        Conta conta = repository.getById(id);
+        conta.setSaldo(operacao.depositar(conta, valor));
+        conta = repository.save(conta);
+        return new ContaDto(conta);
+    }
 }
