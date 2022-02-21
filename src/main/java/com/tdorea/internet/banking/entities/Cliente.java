@@ -1,6 +1,7 @@
 package com.tdorea.internet.banking.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -19,21 +20,22 @@ public class Cliente implements Serializable {
     private Long idCliente;
     private String nome;
     private String cpf;
+
     @JsonFormat(pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
     private LocalDate dataNascimento;
 
+//    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
     @OneToMany(mappedBy = "cliente")
-    private Set<Conta> conta = new HashSet<>();
+    private Set<Conta> contas = new HashSet<>();
 
     public Cliente() {
     }
 
-    public Cliente(Long idCliente, String nome, String cpf, LocalDate dataNascimento, Set<Conta> conta) {
+    public Cliente(Long idCliente, String nome, String cpf, LocalDate dataNascimento) {
         this.idCliente = idCliente;
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
-        this.conta = conta;
     }
 
     public Long getIdCliente() {
@@ -68,12 +70,8 @@ public class Cliente implements Serializable {
         this.dataNascimento = dataNascimento;
     }
 
-    public Set<Conta> getConta() {
-        return conta;
-    }
-
-    public void setConta(Set<Conta> conta) {
-        this.conta = conta;
+    public Set<Conta> getContas() {
+        return contas;
     }
 
     @Override
@@ -96,7 +94,7 @@ public class Cliente implements Serializable {
                 ", nome='" + nome + '\'' +
                 ", cpf='" + cpf + '\'' +
                 ", dataNascimento=" + dataNascimento +
-                ", conta=" + conta +
+                ", contas=" + contas +
                 '}';
     }
 }
