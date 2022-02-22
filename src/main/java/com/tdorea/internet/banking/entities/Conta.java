@@ -3,7 +3,10 @@ package com.tdorea.internet.banking.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_conta")
@@ -21,6 +24,9 @@ public class Conta implements Serializable {
     @ManyToOne
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
+
+    @OneToMany(mappedBy = "conta")
+    private Set<Transacao> transacaos = new HashSet<>();
 
     public Conta() {
     }
@@ -80,6 +86,10 @@ public class Conta implements Serializable {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public Set<Transacao> getTransacaos() {
+        return transacaos;
     }
 
     @Override

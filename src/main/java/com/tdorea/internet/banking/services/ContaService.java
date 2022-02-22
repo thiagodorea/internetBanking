@@ -1,6 +1,7 @@
 package com.tdorea.internet.banking.services;
 
 import com.tdorea.internet.banking.dto.ContaDto;
+import com.tdorea.internet.banking.dto.MovimentacaoDto;
 import com.tdorea.internet.banking.entities.Conta;
 import com.tdorea.internet.banking.operacoes.Operacao;
 import com.tdorea.internet.banking.repositories.ContaRepository;
@@ -25,6 +26,11 @@ public class ContaService {
     public Page<ContaDto> findAll(Pageable pageable){
         Page<Conta> result = repository.findAll(pageable);
         return result.map(x -> new ContaDto(x));
+    }
+    @Transactional(readOnly = true)
+    public Page<MovimentacaoDto> findAllMovement(Pageable pageable){
+        Page<Conta> result = repository.findAll(pageable);
+        return result.map(x -> new MovimentacaoDto(x));
     }
 
     @Transactional

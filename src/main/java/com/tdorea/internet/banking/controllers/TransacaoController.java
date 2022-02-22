@@ -1,7 +1,8 @@
 package com.tdorea.internet.banking.controllers;
 
-import com.tdorea.internet.banking.dto.ClienteDto;
-import com.tdorea.internet.banking.services.ClienteService;
+import com.tdorea.internet.banking.dto.ContaDto;
+import com.tdorea.internet.banking.dto.TransacaoDto;
+import com.tdorea.internet.banking.services.TransacaoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,21 +13,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
-@Api(value = "API REST Clientes")
+@Api(value = "API REST Contas")
 @RestController
-@RequestMapping(value = "/clientes")
-public class ClienteController {
+@RequestMapping(value = "/transacoes")
+public class TransacaoController {
 
     @Autowired
-    private ClienteService service;
+    private TransacaoService service;
 
-    @ApiOperation(value = "Retorna uma lista paginada de Clientes", nickname = "GetLista")
+    @ApiOperation(value = "Retorna uma lista paginada de Transações")
     @GetMapping(value = "/lista")
-    public ResponseEntity<Page<ClienteDto>> findAll(Pageable pageable){
-        Page<ClienteDto> list = service.findAll(pageable);
+    public ResponseEntity<Page<TransacaoDto>> findAll(Pageable pageable){
+        Page<TransacaoDto> list = service.findAll(pageable);
         return ResponseEntity.ok(list);
     }
-
 }

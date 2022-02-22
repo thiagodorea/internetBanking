@@ -1,6 +1,7 @@
 package com.tdorea.internet.banking.controllers;
 
 import com.tdorea.internet.banking.dto.ContaDto;
+import com.tdorea.internet.banking.dto.MovimentacaoDto;
 import com.tdorea.internet.banking.services.ContaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,6 +27,12 @@ public class ContaController {
     @GetMapping(value = "/lista")
     public ResponseEntity<Page<ContaDto>> findAll(Pageable pageable){
         Page<ContaDto> list = service.findAll(pageable);
+        return ResponseEntity.ok(list);
+    }
+    @ApiOperation(value = "Retorna uma lista paginada das Movimentações")
+    @GetMapping(value = "/lista/movimentacao")
+    public ResponseEntity<Page<MovimentacaoDto>> findAllMovement(Pageable pageable){
+        Page<MovimentacaoDto> list = service.findAllMovement(pageable);
         return ResponseEntity.ok(list);
     }
 

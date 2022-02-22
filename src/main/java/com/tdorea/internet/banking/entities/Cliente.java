@@ -24,8 +24,8 @@ public class Cliente implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
     private LocalDate dataNascimento;
 
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
-//    @OneToMany(mappedBy = "cliente")
+//    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "cliente")
     private Set<Conta> contas = new HashSet<>();
 
     public Cliente() {
