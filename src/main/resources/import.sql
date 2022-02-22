@@ -9,5 +9,5 @@ INSERT INTO tb_conta(id_cliente, agencia, n_conta, exclusive, saldo) VALUES (1, 
 INSERT INTO tb_conta(id_cliente, agencia, n_conta, exclusive, saldo) VALUES (2, '007','9234 -9', false, 350.00)
 
 --Inserindo uma movimentação
-INSERT INTO tb_transacao(data_movimentacao, operacao, valor, id_conta ) VALUES( '2022-01-14','SAQUE',100.00,1)
-INSERT INTO tb_transacao(data_movimentacao, operacao, valor, id_conta ) VALUES( '2022-01-14','SAQUE',200.00,1)
+INSERT INTO tb_transacao(data_movimentacao, operacao, valor, id_conta ) VALUES( '2022-01-14',0,100.00,1)
+INSERT INTO tb_transacao(data_movimentacao, operacao, valor, id_conta ) VALUES( '2022-01-14',1,200.00,1)

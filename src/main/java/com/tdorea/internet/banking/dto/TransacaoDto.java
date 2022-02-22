@@ -2,26 +2,31 @@ package com.tdorea.internet.banking.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.tdorea.internet.banking.entities.Transacao;
+import com.tdorea.internet.banking.entities.enuns.TipoOperacao;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class TransacaoDto {
+public class TransacaoDto implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private Long idTansacao;
     @JsonFormat(pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
     private LocalDate dataMovimentacao;
-    private String operacao;
+    private TipoOperacao operacao;
     private BigDecimal valor;
+    private Long idConta;
 
     public TransacaoDto() {
     }
 
-    public TransacaoDto(Long idTansacao, LocalDate dataMovimentacao, String operacao, BigDecimal valor) {
+    public TransacaoDto(Long idTansacao, LocalDate dataMovimentacao, TipoOperacao operacao, BigDecimal valor, Long idConta) {
         this.idTansacao = idTansacao;
         this.dataMovimentacao = dataMovimentacao;
         this.operacao = operacao;
         this.valor = valor;
+        this.idConta = idConta;
     }
 
     public TransacaoDto(Transacao entity) {
@@ -29,6 +34,7 @@ public class TransacaoDto {
         dataMovimentacao = entity.getDataMovimentacao();
         operacao = entity.getOperacao();
         valor = entity.getValor();
+        idConta =entity.getConta().getIdConta();
     }
 
     public Long getIdTansacao() {
@@ -47,11 +53,11 @@ public class TransacaoDto {
         this.dataMovimentacao = dataMovimentacao;
     }
 
-    public String getOperacao() {
+    public TipoOperacao getOperacao() {
         return operacao;
     }
 
-    public void setOperacao(String operacao) {
+    public void setOperacao(TipoOperacao operacao) {
         this.operacao = operacao;
     }
 
@@ -61,5 +67,13 @@ public class TransacaoDto {
 
     public void setValor(BigDecimal valor) {
         this.valor = valor;
+    }
+
+    public Long getIdConta() {
+        return idConta;
+    }
+
+    public void setIdConta(Long idConta) {
+        this.idConta = idConta;
     }
 }

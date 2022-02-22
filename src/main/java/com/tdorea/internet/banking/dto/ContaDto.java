@@ -2,9 +2,11 @@ package com.tdorea.internet.banking.dto;
 
 import com.tdorea.internet.banking.entities.Conta;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class ContaDto {
+public class ContaDto implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private Long idConta;
     private String agencia;

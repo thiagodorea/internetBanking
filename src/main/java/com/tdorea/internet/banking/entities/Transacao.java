@@ -1,5 +1,7 @@
 package com.tdorea.internet.banking.entities;
 
+import com.tdorea.internet.banking.entities.enuns.TipoOperacao;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -15,7 +17,7 @@ public class Transacao implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idTansacao;
     private LocalDate dataMovimentacao;
-    private String operacao;
+    private TipoOperacao operacao;
     private BigDecimal valor;
 
     @ManyToOne
@@ -25,7 +27,7 @@ public class Transacao implements Serializable {
     public Transacao() {
     }
 
-    public Transacao(Long idTansacao, LocalDate dataMovimentacao, String operacao, BigDecimal valor, Conta conta) {
+    public Transacao(Long idTansacao, LocalDate dataMovimentacao, TipoOperacao operacao, BigDecimal valor, Conta conta) {
         this.idTansacao = idTansacao;
         this.dataMovimentacao = dataMovimentacao;
         this.operacao = operacao;
@@ -49,11 +51,11 @@ public class Transacao implements Serializable {
         this.dataMovimentacao = dataMovimentacao;
     }
 
-    public String getOperacao() {
+    public TipoOperacao getOperacao() {
         return operacao;
     }
 
-    public void setOperacao(String operacao) {
+    public void setOperacao(TipoOperacao operacao) {
         this.operacao = operacao;
     }
 

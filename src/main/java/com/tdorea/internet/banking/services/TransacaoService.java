@@ -1,13 +1,18 @@
 package com.tdorea.internet.banking.services;
 
 import com.tdorea.internet.banking.dto.TransacaoDto;
+import com.tdorea.internet.banking.entities.Conta;
 import com.tdorea.internet.banking.entities.Transacao;
+import com.tdorea.internet.banking.entities.enuns.TipoOperacao;
 import com.tdorea.internet.banking.repositories.TransacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Service
 public class TransacaoService {
@@ -19,6 +24,13 @@ public class TransacaoService {
     public Page<TransacaoDto> findAll(Pageable pageable){
         Page<Transacao> result = repository.findAll(pageable);
         return result.map(x -> new TransacaoDto(x));
+    }
+
+    @Transactional
+    public TransacaoDto insert(TipoOperacao operacao, BigDecimal valor, Conta conta ){
+        Transacao transacao = new Transacao(null, LocalDate.now(), operacao, valor, conta);
+        transacao = repository.save(transacao);
+        return new TransacaoDto(transacao);
     }
 
 }
