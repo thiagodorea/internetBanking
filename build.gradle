@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.6.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id "org.sonarqube" version "3.3"
 }
 
 group = 'com.tdorea'
@@ -28,6 +29,14 @@ dependencies {
 	implementation 'io.springfox:springfox-swagger2:2.8.0'
 	implementation 'io.springfox:springfox-swagger-ui:2.8.0'
 
+}
+
+sonarqube {
+	properties {
+		property "sonar.projectKey", "thiagodorea_internetBanking"
+		property "sonar.organization", "hiagodorea"
+		property "sonar.host.url", "https://sonarcloud.io"
+	}
 }
 
 tasks.named('test') {
