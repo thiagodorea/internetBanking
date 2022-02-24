@@ -3,7 +3,7 @@ package com.tdorea.internet.banking.services;
 import com.tdorea.internet.banking.dto.TransacaoDto;
 import com.tdorea.internet.banking.entities.Conta;
 import com.tdorea.internet.banking.entities.Transacao;
-import com.tdorea.internet.banking.entities.enuns.TipoOperacao;
+import com.tdorea.internet.banking.enuns.TipoOperacao;
 import com.tdorea.internet.banking.repositories.TransacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

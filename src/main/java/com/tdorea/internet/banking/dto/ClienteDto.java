@@ -2,20 +2,34 @@ package com.tdorea.internet.banking.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.tdorea.internet.banking.entities.Cliente;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+@ApiModel(value = "Cliente")
 public class ClienteDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    @ApiModelProperty(value = "Id do Cliente")
     private Long idCliente;
+
+    @NotBlank(message = "O Nome deve ser informado")
+    @ApiModelProperty(value = "Nome do Cliente")
     private String nome;
+
+    @NotBlank(message = "O CPF deve ser informado")
+    @Size(min = 11,max = 11, message = "CPF deve ter 11 digitos")
+    @ApiModelProperty(value = "Número do CPF")
     private String cpf;
+
+    @NotBlank(message = "Data de Nascimento deve ser informado")
+    @ApiModelProperty(value = "Data de Nascimento")
     @JsonFormat(pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
     private LocalDate dataNascimento;
-
-//    private List<ContaDto> contas = new ArrayList<>();
 
     public ClienteDto() {
     }
@@ -32,7 +46,6 @@ public class ClienteDto implements Serializable {
         nome = entity.getNome();
         cpf = entity.getCpf();
         dataNascimento = entity.getDataNascimento();
-//        contas = entity.getContas().stream().map(x -> new ContaDto(x)).collect(Collectors.toList());
     }
 
     public Long getIdCliente() {
@@ -67,11 +80,4 @@ public class ClienteDto implements Serializable {
         this.dataNascimento = dataNascimento;
     }
 
-//    public List<ContaDto> getContas() {
-//        return contas;
-//    }
-//
-//    public void setContas(List<ContaDto> contas) {
-//        this.contas = contas;
-//    }
 }

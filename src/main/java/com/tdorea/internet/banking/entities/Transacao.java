@@ -1,6 +1,6 @@
 package com.tdorea.internet.banking.entities;
 
-import com.tdorea.internet.banking.entities.enuns.TipoOperacao;
+import com.tdorea.internet.banking.enuns.TipoOperacao;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,8 +16,11 @@ public class Transacao implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idTansacao;
+
     private LocalDate dataMovimentacao;
+
     private TipoOperacao operacao;
+
     private BigDecimal valor;
 
     @ManyToOne

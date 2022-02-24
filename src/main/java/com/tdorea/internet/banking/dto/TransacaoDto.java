@@ -2,20 +2,35 @@ package com.tdorea.internet.banking.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.tdorea.internet.banking.entities.Transacao;
-import com.tdorea.internet.banking.entities.enuns.TipoOperacao;
+import com.tdorea.internet.banking.enuns.TipoOperacao;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@ApiModel(value = "Transação")
 public class TransacaoDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    @ApiModelProperty(value = "Id da transação")
     private Long idTansacao;
+
+    @ApiModelProperty(value = "Data da transação")
     @JsonFormat(pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
     private LocalDate dataMovimentacao;
+
+    @ApiModelProperty(value = "Tipo de operação")
     private TipoOperacao operacao;
+
+    @NotBlank(message = "Informar o Valor é Obrigatório")
+    @ApiModelProperty(value = "Valor da Operação",required = true)
     private BigDecimal valor;
+
+    @NotBlank(message = "Número da Conta é Obrigatório")
+    @ApiModelProperty(value = "Número da Conta", required = true)
     private Long idConta;
 
     public TransacaoDto() {

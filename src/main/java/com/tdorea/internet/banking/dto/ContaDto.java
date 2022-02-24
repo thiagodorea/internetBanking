@@ -1,19 +1,36 @@
 package com.tdorea.internet.banking.dto;
 
 import com.tdorea.internet.banking.entities.Conta;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+@ApiModel(value = "Conta")
 public class ContaDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    @ApiModelProperty(value = "Id da Conta")
     private Long idConta;
+
+    @NotBlank(message = "Informar o número da agência é Obrigatório")
+    @ApiModelProperty(value = "Numero da Agência",required = true)
     private String agencia;
+
+    @NotBlank(message = "Informar o número da conta é Obrigatório")
+    @ApiModelProperty(value = "Numero da Conta",required = true)
     private String nConta;
+
+    @ApiModelProperty(value = "Cliente exclusivo")
     private Boolean exclusive;
+
+    @NotBlank
+    @ApiModelProperty(value = "Saldo da Conta")
     private BigDecimal saldo;
 
+    @ApiModelProperty(value = "Id do Cliente")
     private Long idCliente;
 
     public ContaDto() {
