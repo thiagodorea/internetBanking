@@ -1,4 +1,4 @@
-package com.tdorea.internet.banking.entities.enuns;
+package com.tdorea.internet.banking.enuns;
 
 public enum TipoOperacao {
 
