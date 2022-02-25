@@ -2,6 +2,7 @@ package com.tdorea.internet.banking.controllers;
 
 import com.tdorea.internet.banking.dto.TransacaoDto;
 import com.tdorea.internet.banking.services.TransacaoService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Api("Transações")
 @RestController
 @RequestMapping(value = "/transacoes")
 public class TransacaoController {
@@ -20,7 +22,7 @@ public class TransacaoController {
     @Autowired
     private TransacaoService service;
 
-    @ApiOperation(value = "Retorna uma lista paginada de Transações")
+    @ApiOperation(value = "Retorna uma lista paginada de Transações",nickname = "Teste")
     @GetMapping(value = "/lista")
     @ApiResponses( value = {
             @ApiResponse(code = 200, message = "OK")
