@@ -23,7 +23,7 @@ public class TransacaoService {
     @Transactional(readOnly = true)
     public Page<TransacaoDto> findAll(Pageable pageable){
         Page<Transacao> result = repository.findAll(pageable);
-        return result.map(x -> new TransacaoDto(x));
+        return result.map(TransacaoDto::new);
     }
 
     @Transactional
