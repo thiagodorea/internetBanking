@@ -34,7 +34,7 @@ public class MovimentacaoDto implements Serializable {
     public MovimentacaoDto(Conta entity) {
         nomeCliente = entity.getCliente().getNome();
         nConta = entity.getnConta();
-        transacoes = entity.getTransacaos().stream().map(x -> new TransacaoDto(x)).collect(Collectors.toList());
+        transacoes = entity.getTransacaos().stream().map(TransacaoDto::new).collect(Collectors.toList());
     }
 
     public String getNomeCliente() {

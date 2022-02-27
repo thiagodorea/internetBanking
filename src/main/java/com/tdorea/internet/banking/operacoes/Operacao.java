@@ -17,12 +17,13 @@ public class Operacao {
 
     public BigDecimal sacar(Conta conta, BigDecimal valor){
 
-        BigDecimal taxa;
+        final BigDecimal taxa;
+        final boolean clienteExclusivo = conta.getExclusive();
 
-        if(!conta.getExclusive() && valor.compareTo(new BigDecimal("100")) > 0 && valor.compareTo(new BigDecimal("300")) <= 0){
+        if(!clienteExclusivo && valor.compareTo(new BigDecimal("100")) > 0 && valor.compareTo(new BigDecimal("300")) <= 0){
             taxa = valor.multiply( new BigDecimal("0.004"));
             valor = valor.add(taxa);
-        }else if(!conta.getExclusive() && valor.compareTo(new BigDecimal("300")) > 0 ){
+        }else if(!clienteExclusivo && valor.compareTo(new BigDecimal("300")) > 0 ){
             taxa = valor.multiply( new BigDecimal("0.01"));
             valor = valor.add(taxa);
         }
