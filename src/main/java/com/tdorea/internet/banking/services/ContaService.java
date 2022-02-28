@@ -25,12 +25,12 @@ public class ContaService {
     @Transactional(readOnly = true)
     public Page<ContaDto> findAll(Pageable pageable){
         Page<Conta> result = repository.findAll(pageable);
-        return result.map(x -> new ContaDto(x));
+        return result.map(ContaDto::new);
     }
     @Transactional(readOnly = true)
     public Page<MovimentacaoDto> findAllMovement(Pageable pageable){
         Page<Conta> result = repository.findAll(pageable);
-        return result.map(x -> new MovimentacaoDto(x));
+        return result.map(MovimentacaoDto::new);
     }
 
     @Transactional
