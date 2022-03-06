@@ -1,0 +1,15 @@
+ext{
+
+    //main project configuration
+    group = 'com.tdorea'
+    projectName = 'internet.banking'
+
+    //version of frameworks
+    springBootVersion = '2.6.3'
+    swagger2Version = '2.8.0'
+
+    //Sonar Mode
+    sonarKey = 'thiagodorea_internetBanking'
+    sonarOrganization = 'hiagodorea'
+    sonarUrl = 'https://sonarcloud.io'
+}
