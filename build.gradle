@@ -1,11 +1,14 @@
+buildscript {
+	apply from: "variables.gradle"
+}
 plugins {
-	id 'org.springframework.boot' version '2.6.3'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'org.springframework.boot' version "$springBootVersion"
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id "org.sonarqube" version "3.3"
 }
 
-group = 'com.tdorea'
+group = "$group"
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
@@ -26,16 +29,16 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 
 	//Swagger
-	implementation 'io.springfox:springfox-swagger2:2.8.0'
-	implementation 'io.springfox:springfox-swagger-ui:2.8.0'
+	implementation "io.springfox:springfox-swagger2:${swagger2Version}"
+	implementation "io.springfox:springfox-swagger-ui:${swagger2Version}"
 
 }
 
 sonarqube {
 	properties {
-		property "sonar.projectKey", "thiagodorea_internetBanking"
-		property "sonar.organization", "hiagodorea"
-		property "sonar.host.url", "https://sonarcloud.io"
+		property "sonar.projectKey", "${sonarKey}"
+		property "sonar.organization", "${sonarOrganization}"
+		property "sonar.host.url", "${sonarUrl}"
 	}
 }
 
