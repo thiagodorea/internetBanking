@@ -1,7 +1,7 @@
-package com.tdorea.internet.banking.operacoes;
+package com.tdorea.internet.banking.utils.operacoes;
 
 import com.tdorea.internet.banking.entities.Conta;
-import com.tdorea.internet.banking.enuns.TipoOperacao;
+import com.tdorea.internet.banking.domain.dto.enuns.TipoOperacao;
 import com.tdorea.internet.banking.services.TransacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

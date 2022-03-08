@@ -1,4 +1,4 @@
-package com.tdorea.internet.banking.dto;
+package com.tdorea.internet.banking.domain.dto;
 
 import com.tdorea.internet.banking.entities.Conta;
 import io.swagger.annotations.ApiModel;

@@ -1,7 +1,7 @@
 package com.tdorea.internet.banking.services;
 
-import com.tdorea.internet.banking.dto.ClienteDto;
-import com.tdorea.internet.banking.entities.Cliente;
+import com.tdorea.internet.banking.domain.dto.ClienteDto;
+import com.tdorea.internet.banking.domain.mapper.ClienteMapper;
 import com.tdorea.internet.banking.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,12 +14,14 @@ import org.springframework.transaction.annotation.Transactional;
 public class ClienteService {
 
     @Autowired
-    private ClienteRepository repository;
+    private ClienteRepository clienteRepository;
+
+    @Autowired
+    private ClienteMapper clienteMapper;
 
     @Transactional(readOnly = true)
     public Page<ClienteDto> findAll(Pageable pageable){
-        Page<Cliente> result = repository.findAll(pageable);
-        return result.map(ClienteDto::new);
+        return clienteRepository.findAll(pageable).map(ClienteDto::new);
     }
 
 

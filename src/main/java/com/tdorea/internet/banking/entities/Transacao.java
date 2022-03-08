@@ -1,6 +1,6 @@
 package com.tdorea.internet.banking.entities;
 
-import com.tdorea.internet.banking.enuns.TipoOperacao;
+import com.tdorea.internet.banking.domain.dto.enuns.TipoOperacao;
 
 import javax.persistence.*;
 import java.io.Serializable;

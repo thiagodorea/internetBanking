@@ -1,6 +1,6 @@
 package com.tdorea.internet.banking.controllers;
 
-import com.tdorea.internet.banking.dto.ClienteDto;
+import com.tdorea.internet.banking.domain.dto.ClienteDto;
 import com.tdorea.internet.banking.services.ClienteService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

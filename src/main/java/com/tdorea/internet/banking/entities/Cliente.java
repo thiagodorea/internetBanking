@@ -20,6 +20,7 @@ public class Cliente implements Serializable {
 
     private String nome;
 
+
     private String cpf;
 
     @JsonFormat(pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")

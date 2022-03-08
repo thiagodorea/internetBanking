@@ -1,7 +1,7 @@
 package com.tdorea.internet.banking.controllers;
 
-import com.tdorea.internet.banking.dto.ContaDto;
-import com.tdorea.internet.banking.dto.MovimentacaoDto;
+import com.tdorea.internet.banking.domain.dto.ContaDto;
+import com.tdorea.internet.banking.domain.dto.MovimentacaoDto;
 import com.tdorea.internet.banking.services.ContaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

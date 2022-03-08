@@ -1,8 +1,8 @@
-package com.tdorea.internet.banking.dto;
+package com.tdorea.internet.banking.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.tdorea.internet.banking.entities.Transacao;
-import com.tdorea.internet.banking.enuns.TipoOperacao;
+import com.tdorea.internet.banking.domain.dto.enuns.TipoOperacao;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 

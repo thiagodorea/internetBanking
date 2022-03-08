@@ -1,9 +1,9 @@
 package com.tdorea.internet.banking.services;
 
-import com.tdorea.internet.banking.dto.ContaDto;
-import com.tdorea.internet.banking.dto.MovimentacaoDto;
+import com.tdorea.internet.banking.domain.dto.ContaDto;
+import com.tdorea.internet.banking.domain.dto.MovimentacaoDto;
 import com.tdorea.internet.banking.entities.Conta;
-import com.tdorea.internet.banking.operacoes.Operacao;
+import com.tdorea.internet.banking.utils.operacoes.Operacao;
 import com.tdorea.internet.banking.repositories.ContaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
